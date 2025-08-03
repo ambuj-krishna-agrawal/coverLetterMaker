@@ -1,0 +1,188 @@
+/* Cover Letter Generator Styles */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.output-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Styling */
+.form-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 12px 15px;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Button Styling */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-primary,
+.btn-outline-success {
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Cover Letter Output */
+.cover-letter-content {
+    background: white;
+    min-height: 600px;
+    font-family: 'Times New Roman', serif;
+    line-height: 1.6;
+}
+
+.cover-letter-content pre {
+    font-family: 'Times New Roman', serif;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Info Panel */
+.info-panel {
+    background: #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    border-left: 4px solid #0d6efd;
+}
+
+/* Loading Indicator */
+#loadingIndicator p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Welcome Message */
+#welcomeMessage {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Error Styling */
+.alert-danger {
+    border-radius: 8px;
+    border: none;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container-fluid .row {
+        flex-direction: column;
+    }
+    
+    .col-md-5,
+    .col-md-7 {
+        min-height: auto;
+    }
+    
+    .form-container {
+        max-width: 100%;
+    }
+    
+    .cover-letter-content {
+        min-height: 400px;
+    }
+}
+
+/* Animation for form elements */
+.form-control,
+.btn {
+    transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for textarea */
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Icon styling */
+.fas {
+    margin-right: 8px;
+}
+
+/* Success animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#coverLetterOutput {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Print styles */
+@media print {
+    .col-md-5 {
+        display: none;
+    }
+    
+    .col-md-7 {
+        width: 100% !important;
+    }
+    
+    .cover-letter-content {
+        box-shadow: none !important;
+        border: none !important;
+    }
+}

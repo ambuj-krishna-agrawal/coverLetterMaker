@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Curl health endpoint
         run: |
-          curl --silent --fail --max-time 10 https://your-app.onrender.com/health || true
+          curl --silent --fail --max-time 10 https://coverlettermaker.onrender.com//health || true

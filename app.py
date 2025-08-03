@@ -56,6 +56,11 @@ def generate_cover_letter():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/health')
+def health():
+    # lightweight check (no DB, no API calls)
+    return "ok", 200
+
 @app.route('/api/health', methods=['GET'])
 def health_check():
     return jsonify({'status': 'healthy', 'message': 'Cover Letter Generator API is running'})

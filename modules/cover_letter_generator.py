@@ -99,6 +99,18 @@ class CoverLetterGenerator:
                 'total_experience': '3+ years of industry experience',
                 'key_companies': ['LinkedIn', 'Netflix', 'CRED'],
                 'core_skills': ['machine learning', 'distributed systems', 'software engineering', 'NLP', 'information retrieval']
+            },
+            'technical_skills': {
+                'programming_languages': ['Python', 'Java', 'C++', 'SQL', 'NOSQL', 'Go'],
+                'frameworks_and_tools': [
+                    'PyTorch', 'vLLM', 'Huggingface', 'Keras', 'Numpy', 'Pandas', 
+                    'Langchain', 'Flask', 'scikit-learn', 'NLTK', 'Kafka', 'AWS', 
+                    'Spacy', 'MTurk', 'Labelbox'
+                ],
+                'specializations': [
+                    'Machine Learning', 'Deep Learning', 'NLP', 'Information Retrieval',
+                    'Distributed Systems', 'Cloud Computing', 'Data Processing'
+                ]
             }
         }
     
@@ -159,6 +171,7 @@ CRITICAL INSTRUCTIONS:
 
 PARAGRAPH 1 (Opening):
 - Excitement to apply for [Role] at [Company] because of their reputation in [specific domain from company info]
+- CRITICAL: Add a line that EXPLICITLY connects your most relevant previous work to this specific job description. Analyze the job requirements and state "My experience in [specific area from catalog that matches job] at [company] makes me uniquely qualified for this role"
 - Brief background: Master's in NLP from CMU (graduating Dec 2025) and industry experience at LinkedIn, Netflix, and CRED
 - Value proposition aligned with their mission
 
@@ -175,9 +188,12 @@ PARAGRAPH 3 (Closing):
 - How background contributes to team success
 
 2. JOB REQUIREMENT MATCHING:
-- CAREFULLY analyze the job description for specific technical requirements, skills, domains
+- CAREFULLY analyze the job description for specific technical requirements, skills, domains, programming languages, and frameworks
+- PRIORITY: Look for technical skill matches between job requirements and my technical_skills catalog (Python, Java, C++, PyTorch, AWS, etc.)
+- When mentioning experiences, weave in relevant technical skills that match the job description
 - For each SLOT (3rd and 4th experiences), EXPLICITLY explain HOW that experience connects to job requirements
 - Use phrases like "directly applicable to [specific requirement]", "relevant to [company domain]", "experience in [required skill]"
+- SKILL MATCHING: When job description mentions specific technologies/frameworks I have, naturally incorporate them (e.g., "using PyTorch and Huggingface", "leveraging AWS infrastructure", "implemented in Python")
 - BUT NEVER make up connections that don't exist - only use what's actually in my experience catalog
 
 3. SLOT SELECTION CRITERIA:
@@ -277,6 +293,12 @@ Generate the cover letter now, following the EXACT Netflix → CMU → SLOT1 →
                 formatted.append(f"- Education: {exp['education']}")
                 formatted.append(f"- Experience: {exp['total_experience']}")
                 formatted.append(f"- Companies: {', '.join(exp['key_companies'])}")
+                
+            elif key == 'technical_skills':
+                formatted.append(f"\nTECHNICAL SKILLS:")
+                formatted.append(f"- Programming Languages: {', '.join(exp['programming_languages'])}")
+                formatted.append(f"- Frameworks & Tools: {', '.join(exp['frameworks_and_tools'])}")
+                formatted.append(f"- Specializations: {', '.join(exp['specializations'])}")
         
         return '\n'.join(formatted)
     
@@ -351,6 +373,7 @@ Generate the cover letter now, following the EXACT Netflix → CMU → SLOT1 →
             'Carnegie Mellon University',
             'granular and implicit human preferences',
             'Routers In LLMs',
+            'Multimodal Web Agents',
             '25%'
         ]
         

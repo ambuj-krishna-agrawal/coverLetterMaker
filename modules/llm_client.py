@@ -5,7 +5,9 @@ from google import genai
 
 class LLMClient:
     def __init__(self):
-        self.api_key = "AIzaSyD0TI3u3s4xRh1nBmWLQQAEw0cnAzmZd5c"
+        self.api_key = os.getenv('GEMINI_API_KEY')
+        if not self.api_key:
+            raise ValueError("GEMINI_API_KEY environment variable is required")
         self.client = genai.Client(api_key=self.api_key)
         self.model_name = "gemini-2.5-flash"
         
